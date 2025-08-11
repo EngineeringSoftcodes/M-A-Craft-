@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>M-A Craft™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.6;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: #aaa;
+    }
+
+    .hero .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero .buttons a {
+      padding: 0.75rem 1.5rem;
+      background-color: #fff;
+      color: #000;
+      font-weight: 600;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .hero .buttons a:hover {
+      background-color: #ccc;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-text {
+      color: #aaa;
+      font-size: 1rem;
+    }
+
+    ul.section-text li {
+      margin-bottom: 0.5rem;
+    }
+
+    .customers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .customer-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 12px;
+      width: 140px;
+      padding: 1rem 0.5rem;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      position: relative;
+      transition: all 0.25s ease;
+      transform: scale(1);
+      overflow: hidden;
+    }
+
+    .customer-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+    }
+
+    .customer-card img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .customer-card:hover img {
+      transform: rotate(3deg) scale(1.1);
+    }
+
+    .customer-card p {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .customer-card::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: #fff;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.7rem;
+      white-space: nowrap;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .customer-card:hover::after {
+      opacity: 1;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 0.5rem;
+      border: none;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      width: 60%;
+    }
+
+    .newsletter button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .newsletter button:hover {
+      background-color: #ccc;
+    }
+
+    footer {
+      padding: 2rem;
+      border-top: 1px solid #333;
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+    }
+
+    footer .footer-links {
+      margin-top: 1rem;
+    }
+
+    footer .footer-links a {
+      margin: 0 0.75rem;
+      color: #999;
+      text-decoration: none;
+    }
+
+    footer .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>M-A Craft™</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#examples">Examples</a>
+      <a href="#customers">Customers</a>
+      <a href="contact">Contact</a>
+      <a href="feedback">Feedback</a>
+      <a href="download">Download</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Free AI 3D Model Generator</h2>
+    <p>
+      M-A Craft™ is a fully free and open AI-powered tool to generate 3D models in all styles. No subscriptions. No locked features. Just pure creative power.
+    </p>
+    <div class="buttons">
+      <a href="generate">Generate Now</a>
+      <a href="open-source" target="_blank">Open Source</a>
+      <a href="contact">Contact</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h3>About</h3>
+    <p class="section-text">
+      M-A Craft™ was created by Engineering Softcodes ™ to bring the power of 3D AI generation to everyone—for free. This platform allows users to create, preview, and export 3D assets with no restrictions.
+    </p>
+  </section>
+
+  <section id="features">
+    <h3>Features</h3>
+    <ul class="section-text">
+      <li>🔷 AI-generated 3D models (characters, props, environments)</li>
+      <li>🔶 Style selection: low poly, realistic, voxel, etc.</li>
+      <li>⚙️ Export in multiple formats (.glb, .obj, .fbx, etc.)</li>
+      <li>🎨 Integrated 3D viewer (coming soon!)</li>
+      <li>🆓 100% Free, forever. No locked features. No pro version.</li>
+    </ul>
+  </section>
+
+  <section id="examples">
+    <h3>What Can It Do?</h3>
+    <ul class="section-text">
+      <li>Generate voxel-based characters for Minecraft-style games</li>
+      <li>Create realistic environments for cutscenes and renders</li>
+      <li>Auto-generate sci-fi props, low poly assets, and vehicles</li>
+      <li>Use models directly in Unity, Unreal, or Blender</li>
+    </ul>
+  </section>
+
+  <section id="customers">
+    <h3>Our Customers</h3>
+    <p class="section-text">Studios, developers, and hobbyists using M-A Craft™:</p>
+    <div class="customers">
+      <a class="customer-card" href="https://engineeringsoftcodes.games" target="_blank" data-tooltip="Official site of Engineering Softcodes™">
+        <img src="https://via.placeholder.com/64x64.png?text=ES" alt="Engineering Softcodes" />
+        <p>Engineering Softcodes ™</p>
+      </a>
+      <a class="customer-card" href="https://youtube.com/@PolandLetsPlay___" target="_blank" data-tooltip="Visit PolandLet'sPlay on YouTube">
+        <img src="https://yt3.googleusercontent.com/ytc/AIdro_lRANDOMCHANNEL=s64-c-k-c0x00ffffff-no-rj" alt="PolandLet'sPlay" />
+        <p>PolandLet'sPlay</p>
+      </a>
+      <a class="customer-card" href="https://twitter.com/remastrays" target="_blank" data-tooltip="Follow Remast Ray's Games on X (Twitter)">
+        <img src="https://via.placeholder.com/64x64.png?text=RR" alt="Remast Ray's Games" />
+        <p>Remast Ray's Games</p>
+      </a>
+      <a class="customer-card" href="add-yourself-to-the-list" data-tooltip="Add your studio or developer name here!">
+        <img src="https://via.placeholder.com/64x64.png?text=You" alt="Add Yourself" />
+        <p>Add Yourself</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h3>Contact</h3>
+    <p class="section-text">
+      Got feedback or questions? Reach out and go to our: <br>
+      <strong><a href="feedback">Feedback Page</a></strong>
+    </p>
+  </section>
+
+  <section id="newsletter">
+    <h3>Stay Updated</h3>
+    <p class="section-text">Enter your email to get updates on features and releases:</p>
+    <form class="newsletter">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 M-A Craft™. Made & Owned By <a href="https://engineeringsoftcodes.games">Engineering Softcodes ™</a>. All rights reserved.
+    <div class="footer-links">
+      <a href="legal">Legal</a>
+      <a href="terms-of-servies">Terms Of Servies</a>
+      <a href="policy-privacy">Policy Privacy</a>
+      <a href="support">Support</a>
+      <a href="docs">Docs</a>
+      <a href="contact">Contact</a>
+      <a href="open-source">Open Source</a>
+    </div>
+  </footer>
+</body>
+</html>

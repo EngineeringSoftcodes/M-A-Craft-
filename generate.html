@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>M-A Craft™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.6;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: #aaa;
+    }
+
+    .hero .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero .buttons a {
+      padding: 0.75rem 1.5rem;
+      background-color: #fff;
+      color: #000;
+      font-weight: 600;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .hero .buttons a:hover {
+      background-color: #ccc;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-text {
+      color: #aaa;
+      font-size: 1rem;
+    }
+
+    ul.section-text li {
+      margin-bottom: 0.5rem;
+    }
+
+    .customers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .customer-card {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 12px;
+      width: 140px;
+      padding: 1rem 0.5rem;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      position: relative;
+      transition: all 0.25s ease;
+      transform: scale(1);
+      overflow: hidden;
+    }
+
+    .customer-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+    }
+
+    .customer-card img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .customer-card:hover img {
+      transform: rotate(3deg) scale(1.1);
+    }
+
+    .customer-card p {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .customer-card::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: #fff;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.7rem;
+      white-space: nowrap;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .customer-card:hover::after {
+      opacity: 1;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 0.5rem;
+      border: none;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+      width: 60%;
+    }
+
+    .newsletter button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .newsletter button:hover {
+      background-color: #ccc;
+    }
+
+    footer {
+      padding: 2rem;
+      border-top: 1px solid #333;
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+    }
+
+    footer .footer-links {
+      margin-top: 1rem;
+    }
+
+    footer .footer-links a {
+      margin: 0 0.75rem;
+      color: #999;
+      text-decoration: none;
+    }
+
+    footer .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Space Grotesk', sans-serif; background-color: #000; color: #fff; line-height: 1.6; }
+    header { padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; }
+    header h1 { font-weight: 600; font-size: 1.5rem; letter-spacing: 1px; }
+    nav a { margin-left: 1.5rem; color: #fff; text-decoration: none; font-size: 1rem; transition: opacity 0.3s; }
+    nav a:hover { opacity: 0.6; }
+    .hero { text-align: center; padding: 6rem 2rem 4rem; }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; color: #aaa; }
+    .hero .buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .hero .buttons a { padding: 0.75rem 1.5rem; background-color: #fff; color: #000; font-weight: 600; border-radius: 5px; text-decoration: none; transition: background 0.3s; }
+    .hero .buttons a:hover { background-color: #ccc; }
+    section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
+    h3 { font-size: 2rem; margin-bottom: 1rem; }
+    .section-text { color: #aaa; font-size: 1rem; }
+    #viewer-container { width: 100%; height: 500px; background-color: #111; border-radius: 10px; overflow: hidden; margin-top: 2rem; }
+    footer { padding: 2rem; border-top: 1px solid #333; font-size: 0.9rem; color: #666; text-align: center; }
+    footer .footer-links { margin-top: 1rem; }
+    footer .footer-links a { margin: 0 0.75rem; color: #999; text-decoration: none; }
+    footer .footer-links a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>M-A Craft™</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#examples">Examples</a>
+      <a href="#customers">Customers</a>
+      <a href="contact">Contact</a>
+      <a href="feedback">Feedback</a>
+      <a href="download">Download</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Free AI 3D Model Generator</h2>
+    <p>M-A Craft™ is a fully free and open AI-powered tool to generate 3D models in all styles. No subscriptions. No locked features. Just pure creative power.</p>
+  </section>
+
+  <section id="viewer-section">
+    <h3>3D Model Viewer</h3>
+    <p class="section-text">Preview your AI-generated model below:</p>
+    <div id="viewer-container"></div>
+  </section>
+
+  <footer>
+    &copy; 2025 M-A Craft™. Made & Owned By <a href="https://engineeringsoftcodes.games">Engineering Softcodes ™</a>. All rights reserved.
+    <div class="footer-links">
+      <a href="legal">Legal</a>
+      <a href="terms-of-servies">Terms Of Servies</a>
+      <a href="policy-privacy">Policy Privacy</a>
+      <a href="support">Support</a>
+      <a href="docs">Docs</a>
+      <a href="contact">Contact</a>
+      <a href="open-source">Open Source</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.146.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.146.0/examples/js/controls/OrbitControls.js"></script>
+
+
+  <script type="module">
+  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js';
+  import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/controls/OrbitControls.js';
+
+  const container = document.getElementById('viewer-container');
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x111111);
+
+  const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+  camera.position.set(2, 2, 4);
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  container.appendChild(renderer.domElement);
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+  const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+  dirLight.position.set(5, 5, 5);
+  scene.add(dirLight);
+
+  const cube = new THREE.Mesh(
+    new THREE.BoxGeometry(),
+    new THREE.MeshStandardMaterial({ color: 0x00ff88 })
+  );
+  scene.add(cube);
+
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+
+  window.addEventListener('resize', () => {
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+  });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+</script>
+</body>
+</html>
