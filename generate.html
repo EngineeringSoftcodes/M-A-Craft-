@@ -286,6 +286,15 @@
       <label for="lightZ">Light Z:</label>
       <input type="range" id="lightZ" min="-10" max="10" step="0.1" value="5" />
     </div>
+
+   
+    <div id="ai-generator" style="max-width: 900px; margin: 2rem auto; text-align: center;">
+      <h3>AI Model Generator (Text Input)</h3>
+      <textarea id="promptInput" rows="3" style="width: 100%; border-radius: 8px; padding: 1rem; font-size: 1rem; background: #222; color: #fff; border: none; resize: vertical;" placeholder="Type what 3D model you want..."></textarea>
+      <button id="generateBtn" style="margin-top: 1rem; padding: 0.75rem 2rem; font-weight: 600; border-radius: 6px; border: none; cursor: pointer; background: #0f0; color: #000;">Generate</button>
+      <p id="outputText" style="margin-top: 1rem; font-style: italic; color: #0f0;"></p>
+  </div>
+
   </section>
 
   <footer>
@@ -399,6 +408,22 @@
     lightXSlider.addEventListener('input', updateLightPosition);
     lightYSlider.addEventListener('input', updateLightPosition);
     lightZSlider.addEventListener('input', updateLightPosition);
+
+    const generateBtn = document.getElementById('generateBtn');
+const promptInput = document.getElementById('promptInput');
+const outputText = document.getElementById('outputText');
+
+generateBtn.addEventListener('click', () => {
+  const prompt = promptInput.value.trim();
+  if (!prompt) {
+    outputText.textContent = 'Please type something first, bro.';
+    return;
+  }
+  // For now, just echo the prompt text
+  outputText.textContent = `You asked to generate: "${prompt}" (AI generation coming soon!)`;
+  // Here’s where you’d hook your AI call later 👀
+});
+
 
     // Animation loop
     function animate() {
