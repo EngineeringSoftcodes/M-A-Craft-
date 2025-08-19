@@ -424,6 +424,47 @@ generateBtn.addEventListener('click', () => {
   // Here’s where you’d hook your AI call later 👀
 });
 
+  const generateBtn = document.getElementById('generateBtn');
+  const promptInput = document.getElementById('promptInput');
+  const outputText = document.getElementById('outputText');
+
+  async function fakeAIGenerate3D(prompt) {
+    // Simulate async AI request (like to Point-E / RunwayML)
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        // Return a mesh as if AI generated it
+        const geometry = new THREE.SphereGeometry(0.5, 32, 32);
+        const material = new THREE.MeshStandardMaterial({ color: 0x3399ff });
+        const model = new THREE.Mesh(geometry, material);
+        model.position.y = 0.5;
+        model.castShadow = true;
+        resolve(model);
+      }, 2000); // simulates waiting for API
+    });
+  }
+
+  generateBtn.addEventListener('click', async () => {
+    const prompt = promptInput.value.trim();
+    if (!prompt) {
+      outputText.textContent = 'Please type something first, bro.';
+      return;
+    }
+
+    outputText.textContent = `Generating "${prompt}"... ⏳`;
+
+    // Remove old generated models (except cube)
+    scene.children = scene.children.filter(obj => obj !== cube && obj.type !== 'Mesh' || obj === plane || obj.isGridHelper || obj.isLight || obj.isHelper);
+
+    try {
+      const model = await fakeAIGenerate3D(prompt);
+      scene.add(model);
+      outputText.textContent = `✅ Generated model for: "${prompt}"`;
+    } catch (err) {
+      outputText.textContent = '❌ Failed to generate model. Try again.';
+      console.error(err);
+    }
+  });
+
 
     // Animation loop
     function animate() {
